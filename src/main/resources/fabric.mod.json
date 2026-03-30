@@ -1,0 +1,28 @@
+{
+	"schemaVersion": 1,
+	"id": "ecobal-commoneconomy-bridge",
+	"version": "${version}",
+	"name": "EcoBal CommonEconomy Bridge",
+	"description": "A bridge between mods using the Common Economy API and the EcoBal API.",
+	"authors": [
+		"xSaVageAU"
+	],
+	"contact": {
+		"homepage": "https://github.com/xSaVageAU/EcoBal-CommonEconomy-Bridge",
+		"sources": "https://github.com/xSaVageAU/EcoBal-CommonEconomy-Bridge"
+	},
+	"license": "MIT",
+	"icon": "assets/ecobal-commoneconomy-bridge/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"savage.ecobalbridge.EcobalCommoneconomyBridge"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.18.5",
+		"minecraft": "~26.1",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
