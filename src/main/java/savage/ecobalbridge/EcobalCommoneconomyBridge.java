@@ -1,24 +1,39 @@
 package savage.ecobalbridge;
 
 import net.fabricmc.api.ModInitializer;
-
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import eu.pb4.common.economy.api.CommonEconomy;
+import net.minecraft.resources.Identifier;
+import net.minecraft.server.MinecraftServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import savage.ecobalbridge.integration.EcobalCommonEconomyProvider;
 
 public class EcobalCommoneconomyBridge implements ModInitializer {
 	public static final String MOD_ID = "ecobal-commoneconomy-bridge";
-
-	// This logger is used to write text to the console and the log file.
-	// It is considered best practice to use your mod id as the logger's name.
-	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
+	/**
+	 * Captured server instance for cross-thread access during economy operations.
+	 */
+	public static MinecraftServer server;
 
 	@Override
 	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
+		// Register the provider using the centralized namespace.
+		CommonEconomy.register(BridgeConfig.NAMESPACE, EcobalCommonEconomyProvider.INSTANCE);
+		
+		ServerLifecycleEvents.SERVER_STARTING.register(s -> server = s);
+		ServerLifecycleEvents.SERVER_STOPPING.register(s -> server = null);
 
-		LOGGER.info("Hello Fabric world!");
+		LOGGER.info("EcoBal CommonEconomy Bridge initialized!");
+	}
+
+	public static void setServer(MinecraftServer server) {
+		EcobalCommoneconomyBridge.server = server;
+	}
+
+	public static MinecraftServer getServer() {
+		return EcobalCommoneconomyBridge.server;
 	}
 }
