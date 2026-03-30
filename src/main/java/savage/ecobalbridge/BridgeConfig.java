@@ -1,5 +1,8 @@
 package savage.ecobalbridge;
 
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+
 /**
  * Centralized configuration for the EcoBal to Common Economy API bridge.
  * <p>
@@ -26,6 +29,16 @@ public final class BridgeConfig {
      * The ID used for the secondary part of the currency identifier (e.g., ecobal:dollar).
      */
     public static final String CURRENCY_ID = "dollar";
+
+    /**
+     * The item used as an icon to represent the entire "EcoBal Bridge" in GUIs.
+     */
+    public static final Item PROVIDER_ICON = Items.DIAMOND;
+
+    /**
+     * The item used as an icon to represent the "EcoBal Dollar" currency in GUIs.
+     */
+    public static final Item CURRENCY_ICON = Items.GOLD_NUGGET;
 
     /**
      * Internal scaling used to convert between EcoBal's double values and Common Economy's BigInteger.

@@ -6,7 +6,6 @@ import me.andy.ecobal.api.EconomyManager;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import savage.ecobalbridge.BridgeConfig;
 
 import java.math.BigInteger;
@@ -20,9 +19,9 @@ import java.math.BigInteger;
 public class EcobalEconomyCurrency implements EconomyCurrency {
     
     /**
-     * The primary identifier for this currency within the "ecobal" namespace.
+     * The primary identifier for this currency within the registered namespace.
      */
-    public static final Identifier ID = Identifier.fromNamespaceAndPath("ecobal", BridgeConfig.CURRENCY_ID);
+    public static final Identifier ID = Identifier.fromNamespaceAndPath(BridgeConfig.NAMESPACE, BridgeConfig.CURRENCY_ID);
     
     private final EconomyProvider provider;
 
@@ -86,6 +85,6 @@ public class EcobalEconomyCurrency implements EconomyCurrency {
 
     @Override
     public ItemStack icon() {
-        return Items.GOLD_NUGGET.getDefaultInstance();
+        return BridgeConfig.CURRENCY_ICON.getDefaultInstance();
     }
 }

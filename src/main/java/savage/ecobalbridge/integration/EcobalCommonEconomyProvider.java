@@ -7,7 +7,6 @@ import eu.pb4.common.economy.api.EconomyProvider;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import savage.ecobalbridge.BridgeConfig;
 
 import java.util.Collection;
@@ -35,7 +34,7 @@ public class EcobalCommonEconomyProvider implements EconomyProvider {
 
     @Override
     public ItemStack icon() {
-        return Items.DIAMOND.getDefaultInstance();
+        return BridgeConfig.PROVIDER_ICON.getDefaultInstance();
     }
 
     @Override

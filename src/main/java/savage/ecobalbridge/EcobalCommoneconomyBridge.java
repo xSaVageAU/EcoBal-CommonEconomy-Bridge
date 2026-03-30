@@ -3,7 +3,6 @@ package savage.ecobalbridge;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import eu.pb4.common.economy.api.CommonEconomy;
-import net.minecraft.resources.Identifier;
 import net.minecraft.server.MinecraftServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
